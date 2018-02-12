@@ -1,5 +1,6 @@
 package com.example.bikram.learningtv;
 
+import java.io.Serializable;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -7,7 +8,7 @@ import java.net.URISyntaxException;
  * Created by bikram on 2/12/18.
  */
 
-public class Movie {
+public class Movie implements Serializable {
     private static final String TAG = Movie.class.getSimpleName();
 
     static final long serialVersionUID = 727566175075960653L;
@@ -16,6 +17,15 @@ public class Movie {
     private String title;
     private String studio;
     private String cardImageUrl;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getCardImageUrl() {
         return cardImageUrl;

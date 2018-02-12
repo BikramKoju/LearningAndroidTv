@@ -1,5 +1,6 @@
 package com.example.bikram.learningtv;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
+import android.support.v17.leanback.widget.OnItemViewClickedListener;
 import android.support.v17.leanback.widget.OnItemViewSelectedListener;
 import android.support.v17.leanback.widget.Presenter;
 import android.support.v17.leanback.widget.Row;
@@ -26,7 +28,8 @@ public class MainFragment extends BrowseFragment {
     private ArrayObjectAdapter mRowsAdapter;
     private static final int GRID_ITEM_WIDTH = 300;
     private static final int GRID_ITEM_HEIGHT = 200;
-    private static SimpleBackgroundManager simpleBackgroundManager=null;
+//    private static SimpleBackgroundManager simpleBackgroundManager=null;
+private static PicassoBackgroundManager picassoBackgroundManager = null;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -35,11 +38,15 @@ public class MainFragment extends BrowseFragment {
         setupUIElements();
         loadRows();
         setupEventListeners();
-        simpleBackgroundManager=new SimpleBackgroundManager(getActivity());
+//        simpleBackgroundManager=new SimpleBackgroundManager(getActivity());
+        picassoBackgroundManager = new PicassoBackgroundManager(getActivity());
+
     }
 
     private void setupEventListeners() {
         setOnItemViewSelectedListener(new ItemViewSelectedListener());
+        setOnItemViewClickedListener(new ItemViewClickedListener());
+
     }
 
     private void loadRows() {
@@ -64,6 +71,7 @@ public class MainFragment extends BrowseFragment {
         for(int i=0; i<10; i++) {
             Movie movie = new Movie();
             movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+//            movie.setCardImageUrl("https://www.facebook.com/photo.php?fbid=1599804753428140&set=a.100341923374438.932.100001958912917&type=3&theater");
             movie.setTitle("title" + i);
             movie.setStudio("studio" + i);
             cardRowAdapter.add(movie);
@@ -121,12 +129,34 @@ public class MainFragment extends BrowseFragment {
         @Override
         public void onItemSelected(Presenter.ViewHolder itemViewHolder, Object item, RowPresenter.ViewHolder rowViewHolder, Row row) {
             // each time the item is selected, code inside here will be executed.
-            if (item instanceof String) { // GridItemPresenter row
+           /* if (item instanceof String) { // GridItemPresenter row
                 simpleBackgroundManager.clearBackground();
             } else if (item instanceof Movie) { // CardPresenter row
                 simpleBackgroundManager.updateBackground(getActivity().getDrawable(R.drawable.movie));
+            }*/
+            if (item instanceof String) {                    // GridItemPresenter
+                picassoBackgroundManager.updateBackgroundWithDelay("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/10/RIMG0656.jpg");
+            } else if (item instanceof Movie) {              // CardPresenter
+                picassoBackgroundManager.updateBackgroundWithDelay(((Movie) item).getCardImageUrl());
             }
 
+
+
+        }
+    }
+
+    private final class ItemViewClickedListener implements OnItemViewClickedListener {
+        @Override
+        public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item, RowPresenter.ViewHolder rowViewHolder, Row row) {
+            // each time the item is clicked, code inside here will be executed.
+            if (item instanceof Movie) {
+                Movie movie = (Movie) item;
+                Log.d(TAG, "Item: " + item.toString());
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra(DetailsActivity.MOVIE, movie);
+
+                getActivity().startActivity(intent);
+            }
 
         }
     }
