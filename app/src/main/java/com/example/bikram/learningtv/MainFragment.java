@@ -72,7 +72,7 @@ public class MainFragment extends BrowseFragment {
         for (int i = 0; i < 10; i++) {
             Movie movie = new Movie();
             if (i % 3 == 0) {
-                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+                movie.setCardImageUrl("http://impactit.org/images/employee/employee.jpg");
             } else if (i % 3 == 1) {
                 movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02630.jpg");
             } else {
@@ -80,9 +80,9 @@ public class MainFragment extends BrowseFragment {
             }
             movie.setTitle("title" + i);
             movie.setStudio("studio" + i);
-            String description = "Lorem ipsum dolor sit amet, qui mundi vivendum cu. Mazim dicant possit te his. Quo solet dicant prodesset eu, pri deseruisse concludaturque ea, saepe maiorum sea et. Impetus discere sed at. Vim eu novum erant integre, te tale voluptatibus est. Facer labores te mel.\n" +
+            String description = "ImpactIT is a service based company located in kathmandu to deliver fast, reliable and best quality web services, to provide various training programs as well as developing different types of the mobile applications.\n" +
                     "\n" +
-                    "Dictas denique qualisque mea id, cu mei verear fabellas. Mel no autem nusquam, viderer oblique te mei. At minimum corpora consulatu vim. Cibo nominavi vis no, in verterem vulputate eos, essent iriure cu vel. Ius ferri expetendis ad, omnes aeterno nominati id his, eum debitis lobortis comprehensam id.\n" +
+                    "In 2016 A.D, we established a company called Impact IT with a mission to help people by solving their daily life issues with our mobile applications.Initially, started with just a few thousands of investment and few numbers of employee, we have developed different types of mobile applications such as kakaaki, kharchakitab and thirdwheel. \n" +
                     "\n" +
                     "Illud dicit nostrud sit no. Eu quod nostro pro. Ut gubergren mnesarchum has, nostro detracto scriptorem et quo, no illud phaedrum recteque sea. Ad his summo probatus recusabo. Qui amet tale viris et, ei his quodsi torquatos adipiscing. Laudem malorum no eum, accusam mandamus sit ex, est ut tractatos dissentiet. Dictas feugiat usu et, an his cibo appareat placerat, eu quis dignissim qui.\n" +
                     "\n" +

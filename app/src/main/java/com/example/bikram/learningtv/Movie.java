@@ -18,6 +18,15 @@ public class Movie implements Serializable {
     private String studio;
     private String cardImageUrl;
     private String description;
+    private String videoUrl;
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
 
     public String getDescription() {
         return description;

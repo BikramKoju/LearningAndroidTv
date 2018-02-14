@@ -115,7 +115,7 @@ public class VideoDetailsFragment extends DetailsFragment{
             for(int i = 0; i < 10; i++){
                 Movie movie = new Movie();
                 if(i%3 == 0) {
-                    movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+                    movie.setCardImageUrl("http://impactit.org/images/employee/employee.jpg");
                 } else if (i%3 == 1) {
                     movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02630.jpg");
                 } else {

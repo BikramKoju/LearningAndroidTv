@@ -6,4 +6,5 @@
     <string name="dismiss_error">Dismiss</string>
     <string name="movie">Movie</string>
     <string name="should_start">shouldStart</string>
+    <string name="title_activity_playback_overlay">PlaybackOverlayActivity</string>
 </resources>
